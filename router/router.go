@@ -7,7 +7,7 @@ import (
 
 func RegisterRoutes(server *gin.Engine) {
 	server.GET("/", controllers.BaseController.Index)
-	r := server.Group("/api/v1")
+	r := server.Group("/api/v6")
 	novel := r.Group("/novel")
 	{
 		novel.GET("/", controllers.NovelControllers.Index)
