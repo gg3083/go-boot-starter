@@ -27,8 +27,8 @@ func ErrorRespByCode(c *gin.Context, code int, msg string) {
 }
 
 // ErrorResp 错误返回值
-func ErrorResp(c *gin.Context, errMsg string) {
-	respOk(c, Failed, errMsg, nil)
+func ErrorResp(c *gin.Context, err error) {
+	respOk(c, Failed, err.Error(), nil)
 }
 
 // ParamErrorResp ErrorResp 错误返回值
