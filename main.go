@@ -6,7 +6,6 @@ import (
 	"go-boot-starter/config"
 	"go-boot-starter/initialize"
 	"go-boot-starter/logger"
-	"go-boot-starter/models"
 )
 
 func main() {
@@ -24,9 +23,9 @@ func main() {
 	logger.Init(cfg)
 	logger.Info(fmt.Sprintf("\n %+v", cfg))
 
-	if err := models.InitDB(cfg); err != nil {
-		panic(fmt.Sprintf("db start error: %s", err))
-	}
+	//if err := models.InitDB(cfg); err != nil {
+	//	panic(fmt.Sprintf("db start error: %s", err))
+	//}
 
 	//启动http服务器
 	if err := initialize.StartHttpServer(cfg); err != nil {

@@ -11,9 +11,9 @@ RUN go mod download && go mod verify && go build -ldflags="-s -w" -o novel_serve
 FROM alpine:3.11
 WORKDIR /app
 RUN mkdir conf
-COPY --from=build-stage /app/go-boot-starter .
+COPY --from=build-stage /app/novel_server .
 COPY --from=build-stage /app/conf/* /app/conf/
-RUN rm /app/conf/app.ini && mv /app/conf/app_release.ini /app/conf/app.ini
+RUN rm /app/conf/app.ini && mv /app/conf/app-release.ini /app/conf/app.ini
 RUN echo 'http://mirrors.ustc.edu.cn/alpine/v3.5/main' > /etc/apk/repositories \
     && echo 'http://mirrors.ustc.edu.cn/alpine/v3.5/community' >>/etc/apk/repositories \
     && apk update \
